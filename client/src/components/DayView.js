@@ -4,6 +4,7 @@ import moment from 'moment'
 import AddOrEditButton from './AddOrEditButton'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import './DayView.css'
 
 const DayView = props => {
   const day = props.routeProps.match.params.day
@@ -14,13 +15,16 @@ const DayView = props => {
     return day === eventDay && month === eventMonth
   })
   return day ?
-    <div className="day-view-container">
-      <h3>{`Feb ${day}`}</h3>
+    <div className='day-view-container'>
+      <div className='day-view-header'>
+        <h3>{`Feb ${day}`}</h3>
+        <NavLink to={'/'}><h3>Full Calendar</h3></NavLink>
+      </div>
       {events.map(event => (
         <EventModal event={event} key={event.id} />
       ))}
       <NavLink to='/events/add'>
-        <AddOrEditButton color={'green'} icon={'plus circle'}/>
+        <AddOrEditButton color={'green'} icon={'plus circle'} />
       </NavLink>
     </div>
     : <h3>...Loading</h3>

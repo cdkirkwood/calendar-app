@@ -3,3 +3,10 @@
   flex-direction: row;
   justify-content: space-around;
 }
+
+.add-button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1;
+}

@@ -1,0 +1,11 @@
+.day-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.day-view-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

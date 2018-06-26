@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Form, Input, TextArea, Button } from 'semantic-ui-react'
 import moment from 'moment'
-
+import './EventForm.css'
 
 const EventForm = props => {
   const event = props.event
@@ -23,7 +23,6 @@ const EventForm = props => {
       name="description" 
       defaultValue= {event ? event.description : ''}
       onChange={props.handleChange}
-      required
       />
       <div>
         <label className="form-date-label">Date</label>

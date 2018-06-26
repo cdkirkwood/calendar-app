@@ -11,26 +11,18 @@ export default class MonthView extends Component {
   constructor() {
     super()
     this.state = {
-      dateContext: moment(),
-      today: moment(),
-      month: moment().format('MMMM'),
-      days: []
+      dateContext: moment()
     }
   }
-
-  //year = () => this.state.dateContext.format('Y')
 
   month = () => this.state.dateContext.format('MMMM')
 
   daysInMonth = () => this.state.dateContext.daysInMonth()
 
-  //currentDate = () => this.state.dateContext.get('date')
-
-  //currentDay = () => this.state.dateContext.format('D')
-
   step = (direction, curMonth, allMonths) => {
     const curMonthIndex = allMonths.indexOf(curMonth)
-    if (direction === 'left' && curMonthIndex === 0 || direction === 'right' && curMonthIndex === 11) return
+    if (direction === 'left' && curMonthIndex === 0) return
+    if (direction === 'right' && curMonthIndex === 11) return
     const newMonthIndex = direction === 'left' ? curMonthIndex - 1 : curMonthIndex + 1
     const dateContext = { ...this.state.dateContext }
     const newContext = moment(dateContext).set('month', newMonthIndex)
@@ -59,7 +51,6 @@ export default class MonthView extends Component {
       days.push(i)
     }
     return [...blanks, ...days]
-    return days
   }
 
 
@@ -76,7 +67,7 @@ export default class MonthView extends Component {
           <StepButton icon={'arrow circle right'} color={'blue'} step={this.step} curMonth={curMonth} direction={'right'} allMonths={months} />
         </div>
         <NavLink to='/events/add' className='add-button'>
-          <AddOrEditButton color={'green'} icon={'plus circle'}/>
+          <AddOrEditButton color={'green'} icon={'plus circle'} />
         </NavLink>
         <Grid columns={7} divided>
           <Grid.Row>
@@ -89,7 +80,7 @@ export default class MonthView extends Component {
           <Grid.Row>
             {days.map((day, index) => (
               <Grid.Column key={index} className='single-day'>
-                <SingleDay day={day} month={curMonth}/>
+                <SingleDay day={day} month={curMonth} />
               </Grid.Column>
             ))}
           </Grid.Row>

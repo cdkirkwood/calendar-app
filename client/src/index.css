@@ -3,34 +3,3 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
-.container {
-  height: 100%;
-}
-
-.month-view {
-  width: 75%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.form-date-label {
-  font-size: .92857143em;
-  font-weight: 700;
-}
-
-.add-button {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  z-index: 1;
-}
-
-.day-view-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
