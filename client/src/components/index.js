@@ -1,3 +1,5 @@
 export {default as MonthView} from './MonthView'
 export {default as DayView} from './DayView'
 export {default as EventForm} from './EventForm'
+export {default as AddEvent} from './AddEvent'
+export {default as UpdateEvent} from './UpdateEvent'

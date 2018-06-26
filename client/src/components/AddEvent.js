@@ -1,27 +1,19 @@
 import React, { Component } from 'react'
+import EventForm from './EventForm'
+import { connect } from 'react-redux'
+import { createEvent } from '../store'
 
-export default class UpdateTodo extends Component {
+class AddEvent extends Component {
   constructor () {
     super()
     this.state = {
       title: '',
       description: '',
-      start: '',
-      end: ''
+      startDate: '',
+      startTime: '',
+      endTime: ''
     }
   }
-
-  // componentWillReceiveProps (nextProps) {
-  //   if (!this.state.taskName && nextProps.todo.taskName) {
-  //     this.setState({
-  //       taskName: nextProps.todo.taskName,
-  //       assignee: nextProps.todo.assignee,
-  //       warningMessage: 'Field is required!'
-  //       // note: it's preferable to only set the warning message here rather than hard-code it
-  //       // as a prop so that we avoid "flashing" it when the component initially renders
-  //     })
-  //   }
-  // }
 
   handleChange = event => {
     this.setState({
@@ -31,15 +23,29 @@ export default class UpdateTodo extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    const { title, description, startDate, startTime, endTime } = this.state
+    const start = `${startDate} ${startTime}`
+    const end = `${startDate} ${endTime}`
+    const newEvent = { title, description, start, end }
+    this.props.createEvent(newEvent)
   }
 
   render () {
     return (
-      <Form
+      <EventForm
         {...this.state}
+        event={{}}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
       />
     )
   }
 }
+
+const mapDispatch = dispatch => ({
+  createEvent: newEvent => dispatch(createEvent(newEvent))
+})
+
+const EventFormContainer = connect(null, mapDispatch)(AddEvent)
+
+export default EventFormContainer

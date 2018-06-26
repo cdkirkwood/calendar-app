@@ -1,33 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import EventModal from './EventModal'
-import axios from 'axios'
 import moment from 'moment'
+import AddButton from './AddButton'
 import { connect } from 'react-redux'
-
-/*
-class DayView extends Component {
-
-  render() {
-    const date = this.props.routeProps.match.params.date
-    const day = this.props.days.find(day => day.date === +date)
-    const events = props.events.filter(event => {
-      const formattedDate = +moment(event.start).format('D')
-      return day.date === date
-    })
-    return (
-      day ?
-      <div className="day-view-container">
-        <h3>{`Feb ${day.date}`}</h3>
-          {day.events.map(event => (
-            <EventModal event={event} key={event.id} />
-          ))}
-      </div>
-      : <h3>...Loading</h3>
-    )
-  }
-
-}
-*/
+import { NavLink } from 'react-router-dom'
 
 const DayView = props => {
   const date = props.routeProps.match.params.date
@@ -42,6 +18,9 @@ const DayView = props => {
       {events.map(event => (
         <EventModal event={event} key={event.id} />
       ))}
+      <NavLink to='/events/add'>
+        <AddButton />
+      </NavLink>
     </div>
     : <h3>...Loading</h3>
 };

@@ -18,10 +18,24 @@ body {
 }
 
 .single-day {
-  height: 100%;
+  height: 50%;
 }
 
 .form-date-label {
   font-size: .92857143em;
   font-weight: 700;
 }
+
+.add-button {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.day-view-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+

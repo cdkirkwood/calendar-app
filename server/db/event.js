@@ -6,6 +6,9 @@ const Event = db.define('event', {
     type: Sequelize.STRING,
     allowNull: false
   },
+  description: {
+    type: Sequelize.TEXT
+  },
   start: {
     type: Sequelize.DATE,
     allowNull: false

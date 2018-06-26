@@ -4,5 +4,4 @@ const router = express.Router()
 module.exports = router
 
 router.use('/users', require('./users'))
-router.use('/calendars', require('./calendars'))
 router.use('/events', require('./events'))

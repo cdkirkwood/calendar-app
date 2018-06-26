@@ -1,4 +1,4 @@
-const { db, User, Event, Calendar } = require('../server/db')
+const { db, User, Event } = require('../server/db')
 
 const seed = async () => {
   await db.sync({ force: true })
@@ -9,15 +9,13 @@ const seed = async () => {
       firstName: 'Connor',
       lastName: 'Kirkwood'
     })
-    await Calendar.create({
-      name: 'primary',
-      userId: 1
-    })
+
     await Event.create({
       title: 'Honey Dijon @ Analogue',
+      description: 'Techno Party!',
       start: new Date(Date.UTC(2019, 1, 18, 22, 0, 0)),
       end: new Date(Date.UTC(2019, 1, 18, 6, 0, 0)),
-      calendarId: 1
+      userId: 1
     })
   //])
 }

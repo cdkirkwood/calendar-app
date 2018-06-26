@@ -11,15 +11,7 @@ router.get('/', asyncHandler(async(req, res) => {
 }))
 
 router.post('/', asyncHandler(async(req, res) => {
-  const {start,  calendarId, end, title} = req.body
-  const convertedStart = new Date(...start)
-  const convertedEnd = new Date(...end)
-  const newEvent = await Event.create({
-    title,
-    calendarId,
-    start: convertedStart,
-    end: convertedEnd,
-  })
+  const newEvent = await Event.create(req.body)
   res.send(newEvent)
 }))
 
@@ -30,6 +22,6 @@ router.put('/:id', asyncHandler(async(req, res) => {
 }))
 
 router.delete('/:id', asyncHandler(async(req, res) => {
-  await Event.destroy(req.params.id)
+  await Event.destroy({ where: { id: req.params.id } })
   res.sendStatus(201)
 }))

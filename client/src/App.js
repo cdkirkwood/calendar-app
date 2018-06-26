@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import axios from 'axios'
 import './App.css';
 import { Route, Switch, withRouter } from 'react-router-dom'
-import { MonthView, DayView, EventForm } from './components'
+import { MonthView, DayView, AddEvent, UpdateEvent } from './components'
 import { fetchUser, fetchEvents } from './store'
 import { connect } from 'react-redux'
-import moment from 'moment'
 
 
 class App extends Component {
@@ -38,7 +35,8 @@ class App extends Component {
     <Switch className='container'>
     <Route exact path='/' render={() => <MonthView days={this.state.days} />} />
     <Route path='/day/:date' render={(routeProps) => <DayView days={this.state.days} routeProps={routeProps}/>}/>
-    <Route path='/addEvent' component={EventForm} />
+    <Route path='/events/add' component={AddEvent} />
+    <Route path='/events/edit/:id' component={UpdateEvent} />
     <Route render={() => <MonthView days={this.state.days} />} />
     </Switch>
     )
