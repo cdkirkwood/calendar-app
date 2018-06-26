@@ -20,7 +20,6 @@ const DayView = props => {
         <h3>{`${month} ${day}`}</h3>
         <NavLink to={'/'}><h3>Full Calendar</h3></NavLink>
       </div>
-      <div className='day-view-body'>
       {events.map(event => (
         <EventModal event={event} key={event.id} />
       ))}
@@ -28,7 +27,6 @@ const DayView = props => {
         <AddOrEditButton color={'green'} icon={'plus circle'} />
       </NavLink>
       </div>
-    </div>
     : <h3>...Loading</h3>
 };
 
