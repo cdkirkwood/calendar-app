@@ -1,3 +1,7 @@
+.month-view-container {
+  padding: 0 20px 20px 20px;
+}
+
 .month-view-header {
   display: flex;
   flex-direction: row;

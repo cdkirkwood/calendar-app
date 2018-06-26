@@ -17,15 +17,17 @@ const DayView = props => {
   return day ?
     <div className='day-view-container'>
       <div className='day-view-header'>
-        <h3>{`Feb ${day}`}</h3>
+        <h3>{`${month} ${day}`}</h3>
         <NavLink to={'/'}><h3>Full Calendar</h3></NavLink>
       </div>
+      <div className='day-view-body'>
       {events.map(event => (
         <EventModal event={event} key={event.id} />
       ))}
       <NavLink to='/events/add'>
         <AddOrEditButton color={'green'} icon={'plus circle'} />
       </NavLink>
+      </div>
     </div>
     : <h3>...Loading</h3>
 };

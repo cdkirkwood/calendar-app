@@ -60,7 +60,7 @@ export default class MonthView extends Component {
     const months = moment.months()
     const curMonth = this.month()
     return (
-      <div>
+      <div className='month-view-container'>
         <div className='month-view-header'>
           <StepButton icon={'arrow circle left'} color={'blue'} step={this.step} curMonth={curMonth} direction={'left'} allMonths={months} />
           <h3>{curMonth}</h3>
