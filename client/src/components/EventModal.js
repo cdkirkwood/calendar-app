@@ -16,6 +16,7 @@ const ModalExampleTopAligned = props => {
         <Modal.Description>
           <Header>{event.startDate}</Header>
           <p>{`${event.startTime}-${event.endTime}`}</p>
+          <p>{event.description}</p>
         </Modal.Description>
       </Modal.Content>
       <Modal.Content>
