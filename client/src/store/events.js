@@ -36,7 +36,7 @@ export const removeEvent = eventId => {
 
 //Thunks
 export const fetchEvents = () => asyncCatcher(async (dispatch) => {
-  const response = await axios.get('/api/events')
+  const response = await axios.get('/api/events?userId=1')
   dispatch(getEvents(response.data))
 })
 

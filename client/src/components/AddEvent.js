@@ -23,10 +23,11 @@ class AddEvent extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    const userId = this.props.user.id
     const { title, description, startDate, startTime, endTime } = this.state
     const start = `${startDate} ${startTime}`
     const end = `${startDate} ${endTime}`
-    const newEvent = { title, description, start, end }
+    const newEvent = { title, description, start, end, userId }
     this.props.createEvent(newEvent)
   }
 
@@ -34,7 +35,6 @@ class AddEvent extends Component {
     return (
       <EventForm
         {...this.state}
-        event={{}}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
       />
@@ -42,10 +42,12 @@ class AddEvent extends Component {
   }
 }
 
+const mapState = state => ({user: state.user})
+
 const mapDispatch = dispatch => ({
   createEvent: newEvent => dispatch(createEvent(newEvent))
 })
 
-const EventFormContainer = connect(null, mapDispatch)(AddEvent)
+const EventFormContainer = connect(mapState, mapDispatch)(AddEvent)
 
 export default EventFormContainer

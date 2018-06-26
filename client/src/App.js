@@ -15,29 +15,16 @@ class App extends Component {
   }
   componentDidMount = async () => {
     this.props.loadData()
-    this.generateDays()
-  }
-  
-
-  generateDays = (events) => {
-    const days = []
-    for (let i = 0; i < 28; i++) {
-      const dayObj = {
-        date: i + 1
-      }
-      days.push(dayObj)
-    }
-    this.setState(() => ({days}))
   }
 
   render() {
     return(
     <Switch className='container'>
-    <Route exact path='/' render={() => <MonthView days={this.state.days} />} />
-    <Route path='/day/:date' render={(routeProps) => <DayView days={this.state.days} routeProps={routeProps}/>}/>
+    <Route exact path='/' component={MonthView} />
+    <Route path='/day/:month/:day' render={(routeProps) => <DayView routeProps={routeProps}/>}/>
     <Route path='/events/add' component={AddEvent} />
     <Route path='/events/edit/:id' component={UpdateEvent} />
-    <Route render={() => <MonthView days={this.state.days} />} />
+    <Route component={MonthView} />
     </Switch>
     )
   }

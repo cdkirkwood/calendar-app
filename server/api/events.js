@@ -6,7 +6,10 @@ const asyncHandler = require('express-async-handler')
 module.exports = router
 
 router.get('/', asyncHandler(async(req, res) => {
-  const events = await Event.findAll()
+  const userId = req.query.userId
+  const events = userId ?
+  await Event.findAll({ where: { userId } })
+  : await Event.findAll()
   res.send(events)
 }))
 

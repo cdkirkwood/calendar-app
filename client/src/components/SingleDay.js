@@ -8,16 +8,18 @@ import './SingleDay.css'
 
 const SingleDay = props => {
   const day = props.day
+  const month = props.month
   const events = props.events.filter(event => {
-    const date = +moment(event.start).format('D')
-    return day.date === date
+    const eventDay = +moment(event.start).format('D')
+    const eventMonth = moment(event.start).format('MMMM')
+    return day === eventDay && month === eventMonth
   })
   return (
-    <div className='single-day' key={day.date}>
-      <NavLink to={`/day/${day.date}`} className='date'>{day.date}</NavLink>
-      <div className='events-month-view'>
+    <div className='single-day'>
+      <NavLink to={`/day/${month}/${day}`} className='date'>{day}</NavLink>
+      <div className='modal-view'>
         {events.map((event, index) => {
-          if (index > 1) return <NavLink to={`/day/${day.date}`}>{`+${events.length - 2} more`}</NavLink>
+          if (index > 1) return <NavLink key={event.id} to={`/day/${month}/${day}`}>{`+${events.length - 2} more`}</NavLink>
           else return <Modal key={event.id} event={event} />
         }
         )}

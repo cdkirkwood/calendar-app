@@ -17,10 +17,6 @@ body {
   justify-content: space-between;
 }
 
-.single-day {
-  height: 75%;
-}
-
 .form-date-label {
   font-size: .92857143em;
   font-weight: 700;

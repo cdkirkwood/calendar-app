@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Header, Modal } from 'semantic-ui-react'
-import EditButton from './EditButton'
-import AddButton from './AddButton'
+import AddOrEditButton from './AddOrEditButton'
 import DeleteButton from './DeleteButton'
 import { NavLink } from 'react-router-dom'
 
@@ -21,7 +20,7 @@ const ModalExampleTopAligned = props => {
       </Modal.Content>
       <Modal.Content>
         <NavLink to={`/events/edit/${event.id}`}>
-          <EditButton />
+          <AddOrEditButton color='blue' icon='edit'/>
         </NavLink>
         <DeleteButton eventId={event.id} />
       </Modal.Content>
