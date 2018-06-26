@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import Modal from './EventModal'
 import { connect } from 'react-redux'
 import moment from 'moment'
+import './SingleDay.css'
+
 
 const SingleDay = props => {
   const day = props.day
@@ -13,10 +15,13 @@ const SingleDay = props => {
   return (
     <div className='single-day' key={day.date}>
       <NavLink to={`/day/${day.date}`} className='date'>{day.date}</NavLink>
-      {events.map(event => {
-        return <Modal key={event.id} event={event} />
-      }
-      )}
+      <div className='events-month-view'>
+        {events.map((event, index) => {
+          if (index > 1) return <NavLink to={`/day/${day.date}`}>{`+${events.length - 2} more`}</NavLink>
+          else return <Modal key={event.id} event={event} />
+        }
+        )}
+      </div>
     </div>
   )
 }

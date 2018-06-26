@@ -3,11 +3,12 @@ import SingleDay from './SingleDay'
 import AddButton from './AddButton'
 import { Grid, GridColumn } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom'
+import moment from 'moment'
 
 export default class MonthView extends Component {
   render() {
     const days = this.props.days || []
-    const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    const daysOfWeek = moment.weekdays()
     return (
       <div>
       <NavLink to='/events/add' className='add-button'>

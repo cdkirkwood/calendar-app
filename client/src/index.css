@@ -18,7 +18,7 @@ body {
 }
 
 .single-day {
-  height: 50%;
+  height: 75%;
 }
 
 .form-date-label {
@@ -38,4 +38,3 @@ body {
   flex-direction: column;
   justify-content: space-around;
 }
-
