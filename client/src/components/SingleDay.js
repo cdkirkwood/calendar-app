@@ -21,7 +21,7 @@ const SingleDay = props => {
         {events.map((event, index) => {
           if (index < 2) return <Modal key={event.id} event={event} />
           else if (index === 2) return <NavLink key={event.id} to={`/day/${month}/${day}`}>{`+${events.length - 2} more`}</NavLink>
-          else return
+          else return null
         }
         )}
       </div>
