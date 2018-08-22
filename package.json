@@ -5,7 +5,9 @@
     "client": "cd client && npm start",
     "server": "nodemon server --watch server",
     "dev": "npm run server & npm run client",
-    "seed": "node script/seed.js"
+    "seed": "node script/seed.js",
+    "install-client": "cd client && npm i",
+    "install-all": "npm i && npm run install-client"
   },
   "dependencies": {
     "axios": "^0.18.0",
